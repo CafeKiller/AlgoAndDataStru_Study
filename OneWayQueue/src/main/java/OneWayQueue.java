@@ -1,14 +1,24 @@
-import org.apache.log4j.Logger;
 
-// 单向队列
+/**
+ * 使用数组实现单向队列
+ * */
 public class OneWayQueue {
 
-    public static Logger logger = Logger.getLogger(OneWayQueue.class);
+    private int MaxSize; //队列最大值
+    private int front;  //队列头
+    private int rear;   //队列尾
+    private int[] queueArr;
 
-    public static void main(String[] args) {
 
+    public OneWayQueue(int maxSize){
 
+        this.MaxSize = maxSize;
+        this.queueArr = new int[maxSize];
+        this.front = -1;
+        this.rear = -1;
 
     }
+
+
 
 }
