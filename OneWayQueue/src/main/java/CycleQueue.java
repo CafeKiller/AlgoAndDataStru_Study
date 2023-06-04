@@ -47,6 +47,7 @@ public class CycleQueue {
     public void add(int number){
         if (isFull()){
             System.err.println("当前队列已满,无法添加新的元素");
+            return;
         }
         queueArr[rear] = number;
         rear = (rear+1) % maxSize;
