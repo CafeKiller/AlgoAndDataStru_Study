@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>SparseArray</module>
-        <module>OneWayQueue</module>
+        <module>Queue</module>
     </modules>
 
     <dependencies>
