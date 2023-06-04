@@ -36,9 +36,13 @@ public class CycleQueue {
     /**
      * 展示当前队列中的有效数据
      * */
+    public int size(){
+        return (rear + maxSize - front) % maxSize;
+    }
 
     /**
      * 往队列中添加元素
+     * 后移算法: 队列头/队列尾+1 % 队列最大长度 即可获得"队列头/队列尾"的后移位置
      * */
     public void add(int number){
         if (isFull()){
@@ -50,6 +54,7 @@ public class CycleQueue {
 
     /**
      * 取出队列中的元素
+     * 后移算法: 队列头/队列尾+1 % 队列最大长度 即可获得"队列头/队列尾"的后移位置
      * */
     public int get(){
         if (isEmpty()){
@@ -62,15 +67,28 @@ public class CycleQueue {
     }
 
     /**
-     * 展示队列中的所有元素
+     * 展示队列中的所有元素(不是取出)
      * */
     public void showAll(){
         if (isEmpty()){
             System.err.println("当前队列为空,无法进行展示");
         }
+        for (int i = front; i <front+size(); i++){
+            System.out.printf("arr[%d] = %d \n", i %maxSize, queueArr[ i %maxSize]);
+        }
 
     }
 
+    /**
+     * 展示队列的队列头元素(不是取出)
+     * */
+    public void showHeader(){
+        if (isEmpty()){
+            System.err.println("当前队列为空,无法查询队列头");
+            return;
+        }
+        System.out.println(queueArr[front]);
+    }
 
 
 }
