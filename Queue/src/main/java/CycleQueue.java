@@ -5,10 +5,10 @@ import java.util.Scanner;
  * */
 public class CycleQueue {
 
-    private int maxSize; //队列最大值
+    private final int maxSize; //队列最大值
     private int front;  //队列头
     private int rear;   //队列尾
-    private int[] queueArr;
+    private final int[] queueArr;
 
     public CycleQueue(int maxSize){
         this.maxSize = maxSize;
