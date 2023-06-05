@@ -57,4 +57,34 @@ public class SingleLinkedList {
 
     }
 
+    /**
+     * 修改方法(通过编号)
+     * */
+    public void update(HeroNode newNode){
+        /*非空判断*/
+        if (header.next == null){
+            System.err.println("当前链表为空!");
+            return;
+        }
+
+        HeroNode temp = header.next;
+        boolean flag = false;   //定位阀,标志是否找到需要修改的节点
+
+        while (true){
+            if (temp == null) break;    //说明遍历结束;
+            if (temp.no == newNode.no){ //查询到需要修改的节点;
+                flag = true;
+                break;
+            }
+            temp = temp.next;   //后移
+        }
+
+        if(flag){ //修改
+            temp.name = newNode.name;
+        }else {
+            System.err.println("未查询到对应编号: "+newNode.no+"节点,无法进行修改操作!");
+        }
+
+    }
+
 }
