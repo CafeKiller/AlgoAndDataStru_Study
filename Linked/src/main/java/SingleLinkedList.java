@@ -84,7 +84,29 @@ public class SingleLinkedList {
         }else {
             System.err.println("未查询到对应编号: "+newNode.no+"节点,无法进行修改操作!");
         }
+    }
 
+    /**
+     * 删除方法(通过编号来定位需要删除的节点)
+     * */
+    public void delete(int no){
+
+        HeroNode temp = header;
+        boolean flag = false;
+
+        while(true){
+            if(temp == null) break;
+            if(temp.no == no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        if (flag){
+            temp.next = temp.next.next;
+        }else {
+            System.err.println("查询到对应编号: "+no+"节点,无法进行删除操作!");
+        }
     }
 
 }
