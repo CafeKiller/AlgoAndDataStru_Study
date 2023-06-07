@@ -1,4 +1,4 @@
-
+import java.util.Stack;
 
 /**
  * 单向链表类
@@ -124,6 +124,70 @@ public class SingleLinkedList {
             if (temp == null) break;
             System.out.println(temp);
             temp = temp.next;
+        }
+    }
+
+    /**
+     * 获取链表中有效数据的个数
+     * */
+    public int getLength(){
+        if (header.next == null) return 0;
+
+        int len = 0;
+        HeroNode temp = header.next;
+        while(temp != null){
+            len++;
+            temp = temp.next;
+        }
+        return len;
+    }
+
+    /**
+     * 查询链表中倒数第x个元素(新浪面试题)
+     *
+     * */
+    public HeroNode getLastNode(int index){
+        if (header.next==null) return null;
+        int size = getLength();
+        if (index <= 0 || index >= size) return null;
+        HeroNode temp = header.next;
+        for (int i = 0; i < size - index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    /**
+     * 节点反转,将整个链表进行反转(腾讯面试题)
+     * */
+    public void reverseList(){
+        if (header.next == null || header.next.next == null) return;
+        HeroNode temp = header.next;
+        HeroNode next = null;
+        HeroNode newHeader = new HeroNode(0,"");
+        while(temp != null){
+            next = temp.next;
+            temp.next = newHeader.next;
+            newHeader.next = temp;
+            temp = next;
+        }
+        header.next = newHeader.next;
+    }
+
+    /**
+     * 从尾到头打印每一个节点
+     * 需要利用到栈
+     * */
+    public void reversePrint(){
+        if(header.next == null) return;
+        Stack<HeroNode> stack = new Stack<>();
+        HeroNode temp = header.next;
+        while(temp != null){
+            stack.push(temp);
+            temp = temp.next;
+        }
+        while(stack.size() > 0){
+            System.out.println(stack.pop());
         }
     }
 
