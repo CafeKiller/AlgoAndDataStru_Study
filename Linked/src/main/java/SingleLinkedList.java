@@ -109,4 +109,24 @@ public class SingleLinkedList {
         }
     }
 
+
+    /**
+     * 显示链表
+     * */
+    public void show(){
+
+        if (header.next == null){
+            System.err.println("当前链表为空,无法查看");
+            return;
+        }
+
+        HeroNode temp = header.next;
+        while(true){
+            if (temp == null) break;
+            System.out.println(temp);
+            temp = temp.next;
+        }
+    }
+
+
 }
