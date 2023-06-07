@@ -96,7 +96,7 @@ public class SingleLinkedList {
 
         while(true){
             if(temp == null) break;
-            if(temp.no == no){
+            if(temp.next.no == no){
                 flag = true;
                 break;
             }
@@ -119,7 +119,6 @@ public class SingleLinkedList {
             System.err.println("当前链表为空,无法查看");
             return;
         }
-
         HeroNode temp = header.next;
         while(true){
             if (temp == null) break;

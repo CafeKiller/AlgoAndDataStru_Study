@@ -18,9 +18,7 @@ public class HeroNode {
     public String toString() {
         return "HeroNode{" +
                 "no=" + no +
-                ", name='" + name + '\'' +
-                ", next=" + next +
-                '}';
+                ", name='" + name + '\'' + '}';
     }
 
 
