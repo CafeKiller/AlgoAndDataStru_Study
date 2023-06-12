@@ -50,6 +50,50 @@ public class DoubleLinkedList {
         newNode.prev = curNode;
     }
 
+    /**
+     * 添加元素(按照顺序进行插入)
+     * */
+    public void addOrder(Hero2Node newHero){
+        /* 临时指针 */
+        Hero2Node curNode = header.next;
+        /* 标志位,为true时表示可以插入新节点了 */
+        boolean flag = true;
+
+        /* 说明当前链表还没有元素,所以可以直接插入 */
+        if(header.next == null){
+            newHero.prev = header;
+            header.next = newHero;
+        }else{
+            while(true){
+                if (curNode.no == newHero.no){
+                    System.err.println("当前元素已存在,无法添加");
+                    flag = false;
+                    break;
+                } else if (curNode.no > newHero.no) {
+                    /* 表示已经找到可以插入的节点了,退出循环 */
+                    break;
+                }
+                if (curNode.next == null){
+                    /* 表示已经找了尾节点了,可以直接插入了 */
+                    break;
+                }
+                /* 还有找到可以插入/尾节点,需要再后移一位 */
+                curNode = curNode.next;
+            }
+            if(flag){
+                /* 新节点连接原先的上下节点 */
+                newHero.next = curNode;
+                newHero.prev = curNode.prev;
+                /* 将原先的上下节点的相邻节点替换成新节点 */
+                curNode.prev.next = newHero;
+                curNode.prev = newHero;
+
+            }
+        }
+
+
+    }
+
 
 
 }
