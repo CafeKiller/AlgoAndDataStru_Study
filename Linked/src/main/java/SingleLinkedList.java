@@ -76,7 +76,7 @@ public class SingleLinkedList {
                 flag = true;
                 break;
             }
-            temp = temp.next;   //后移
+            temp = temp.next;   //后移一个节点
         }
 
         if(flag){ //修改
@@ -91,7 +91,7 @@ public class SingleLinkedList {
      * */
     public void delete(int no){
 
-        HeroNode temp = header;
+        HeroNode temp = header;     //
         boolean flag = false;
 
         while(true){
