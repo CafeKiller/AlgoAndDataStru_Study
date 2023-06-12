@@ -20,6 +20,7 @@ public class DoubleLinkedList {
             System.err.println("当前链表为空，无法访问");
             return;
         }
+        /* 临时指针 */
         Hero2Node curNode = header.next;
         while(true){
             System.out.println(curNode);
@@ -30,7 +31,24 @@ public class DoubleLinkedList {
         }
     }
 
-    
+    /**
+    * 添加元素(添加至尾节点处)
+    * */
+    public void add(Hero2Node newNode){
+        /* 临时指针 */
+        Hero2Node curNode = header.next;
+
+        while(true){
+            if (curNode.next == null){ /*表示已经找到了尾节点，可以退出循环了*/
+                break;
+            }
+            curNode = curNode.next; /*还没有找到尾节点，需要后移*/
+        }
+        /* 推出循环 curNode指向尾节点 */
+        /* 将新节点插入尾节点， 并连接前一个节点 */
+        curNode.next = newNode;
+        newNode.prev = curNode;
+    }
 
 
 
