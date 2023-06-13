@@ -95,5 +95,37 @@ public class DoubleLinkedList {
     }
 
 
+    /**
+     *  修改节点中的内容
+     * */
+    public void update(Hero2Node newNode){
+        if(header.next == null){
+            System.err.println("当前链表为空，无法修改节点");
+            return;
+        }
+        Hero2Node curNode = header.next;
+        boolean flag = false;
+        while (true){
+            if (curNode == null){
+                break;
+            }
+            if (curNode.no == newNode.no){
+                flag = true;
+                break;
+            }
+            curNode = curNode.next;
+        }
+
+        if (!flag){
+            System.err.println("未找到节点: "+newNode.no+" 无法进行修改操作");
+        }else{
+            curNode.name = newNode.name;
+            System.out.println("修改成功");
+        }
+
+
+    }
+
+
 
 }
