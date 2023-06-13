@@ -103,16 +103,20 @@ public class DoubleLinkedList {
             System.err.println("当前链表为空，无法修改节点");
             return;
         }
+        /* 临时节点 */
         Hero2Node curNode = header.next;
-        boolean flag = false;
+        boolean flag = false;   // 标志符
         while (true){
+            // 到达尾节点,退出循环
             if (curNode == null){
                 break;
             }
+            // 表示找到对应节点退出循环
             if (curNode.no == newNode.no){
                 flag = true;
                 break;
             }
+            // 后移
             curNode = curNode.next;
         }
 
@@ -122,9 +126,36 @@ public class DoubleLinkedList {
             curNode.name = newNode.name;
             System.out.println("修改成功");
         }
-
-
     }
+
+    /**
+     * 删除节点
+     * */
+    public void delete(int no){
+        Hero2Node curNode = header.next;
+        if (curNode == null){
+            System.err.println("当前链表为空 无法进行删除操作");
+        }
+        boolean flag = false;
+        while(true){
+            // 找到对应节点.
+            if (curNode.no == no){
+                flag = true;
+                break;
+            }
+            curNode = curNode.next;
+        }
+        if (flag){
+            // 将"要删除节点"的 下一节点 ,和"要删除节点"的 上一节点的下节点 进行连接
+            curNode.prev.next = curNode.next;
+            if (curNode.next != null){
+                // 如果"要删除节点"的 下一节点 不为空时,需要和'要删除节点'的 上节点进行连接.
+                curNode.next.prev = curNode.prev;
+            }
+        }
+    }
+
+
 
 
 
