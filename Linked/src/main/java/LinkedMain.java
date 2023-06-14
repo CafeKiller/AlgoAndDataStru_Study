@@ -76,9 +76,6 @@ public class LinkedMain {
         doubleLinked.addOrder(node3);
         doubleLinked.addOrder(node4);
 
-
-
-
         // 展示链表中的所有元素
         logger.info("以下为展示链表中的所有元素");
         doubleLinked.list();
