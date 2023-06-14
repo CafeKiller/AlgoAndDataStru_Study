@@ -65,29 +65,28 @@ public class DoubleLinkedList {
                 /* 表示已经找了尾节点了,可以直接插入了 */
                 break;
             }
-            if (curNode.no == newHero.no) {
-                System.err.println("当前元素已存在,无法添加");
-                flag = false;
-                break;
-            } else if (curNode.no > newHero.no) {
+            if (curNode.next.no > newHero.no) {
                 /* 表示已经找到可以插入的节点了,退出循环 */
+                break;
+            }
+            if (curNode.next.no == newHero.no) {
+                System.err.println("当前元素已存在,无法添加");
+                flag = true;
                 break;
             }
             /* 还有找到可以插入/尾节点,需要再后移一位 */
             curNode = curNode.next;
         }
-        if (!flag) {
-            if(curNode.next == null){
-                curNode.next = newHero;
-                newHero.prev = curNode;
-                return;
+        if (flag) {
+            System.out.println("输入编号"+newHero.no+"已存在,无法插入");
+        }else{
+            if(curNode.next != null){
+                newHero.next = curNode.next;
+                curNode.next.prev = newHero;
             }
-            newHero.next = curNode;
-            newHero.prev = curNode.prev;
-            curNode.prev.next = newHero;
-            curNode.prev = newHero;
+            curNode.next = newHero;
+            newHero.prev = curNode;
         }
-
 
     }
 

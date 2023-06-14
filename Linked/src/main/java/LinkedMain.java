@@ -69,23 +69,29 @@ public class LinkedMain {
         doubleLinked.add(node3);
         doubleLinked.add(node4);*/
 
+        /* 测试顺序插入 */
         DoubleLinkedList doubleLinked = new DoubleLinkedList();
         doubleLinked.addOrder(node1);
         doubleLinked.addOrder(node2);
         doubleLinked.addOrder(node3);
         doubleLinked.addOrder(node4);
 
+
+
+
         // 展示链表中的所有元素
-//        logger.info("以下为展示链表中的所有元素");
+        logger.info("以下为展示链表中的所有元素");
         doubleLinked.list();
 
         // 测试修改节点
-//        logger.info("以下测试修改节点");
-
-        /*
+        logger.info("以下测试修改节点");
         Hero2Node node2_2 = new Hero2Node(6,"刘老六");
-        doubleLinked.update();
-        */
+        doubleLinked.update(node2_2);
+        doubleLinked.list();
+
+        logger.info("以下为测试删除一个节点");
+        doubleLinked.delete(4);
+        doubleLinked.list();
 
 
     }
