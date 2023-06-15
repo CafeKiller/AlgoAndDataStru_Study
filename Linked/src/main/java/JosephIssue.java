@@ -6,7 +6,13 @@
  * */
 public class JosephIssue {
 
+    static CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
 
+    public static void test(){
+        circleSingleLinkedList.addBoy(5);
+        circleSingleLinkedList.list();
+        circleSingleLinkedList.solveJoseph(1,3,5);
+    }
 
 }
 
@@ -116,7 +122,7 @@ class CircleSingleLinkedList{
         }
         while(true){
             if(helper == first){
-                System.out.println("最后出圈的是: " + first.getNo());
+                System.err.println("最后出圈的是: " + first.getNo());
                 break;
             }
             for (int i = 0; i < countNum-1; i++) {
@@ -124,13 +130,10 @@ class CircleSingleLinkedList{
                 helper = first.getNext();
             }
             // 这是后first指向的小孩 出圈
-            System.out.print(first.getNo()+" ");
+            System.out.println(first.getNo()+" ");
             first = first.getNext();
             helper.setNext(first);
         }
     }
-
-
-
 
 }
