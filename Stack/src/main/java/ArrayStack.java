@@ -5,11 +5,11 @@
 public class ArrayStack {
 
     /*栈的最大容量*/
-    private int maxSize;
+    protected int maxSize;
     /*数组模拟栈*/
-    private int[] stack;
+    protected int[] stack;
     /*栈顶指针*/
-    private int top = -1;
+    protected int top = -1;
 
 
     public ArrayStack(int maxSize){
