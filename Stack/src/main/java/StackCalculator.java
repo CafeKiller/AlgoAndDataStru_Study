@@ -4,6 +4,30 @@
 * */
 public class StackCalculator {
 
+    /* 表达式 */
+    String expression = "7*2*2-5+1-5+3-4";
+
+    /*需要使用到两个栈 数栈 和 运算符栈*/
+    ArrStack numStack = new ArrStack(10);
+    ArrStack operStack = new ArrStack(10);
+
+    int index = 0;
+    int num1 = 0;
+    int num2 = 0;
+    int oper = 0;
+    int res = 0;
+    char ch = ' ';
+    String keepNum = "";
+
+    public void fun1(){
+        while(true){
+            ch = expression.substring(index, index+1).charAt(0);
+
+        }
+    }
+
+
+
 }
 
 
