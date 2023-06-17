@@ -7,6 +7,8 @@ public class StackCalculator {
     /* 表达式 */
     String expression = "7*2*2-5+1-5+3-4";
 
+
+
     /*需要使用到两个栈 数栈 和 运算符栈*/
     ArrStack numStack = new ArrStack(10);
     ArrStack operStack = new ArrStack(10);
@@ -19,11 +21,20 @@ public class StackCalculator {
     char ch = ' ';
     String keepNum = "";
 
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
     public void fun1(){
 
 
         while(true){
             ch = expression.substring(index, index+1).charAt(0);
+
 
             if(operStack.isOper(ch)){
 
@@ -39,7 +50,6 @@ public class StackCalculator {
                         numStack.push(res);
 
                         operStack.push(ch);
-
                     }else {
 
                         operStack.push(ch);
@@ -48,10 +58,10 @@ public class StackCalculator {
                 }else{
 
                     operStack.push(ch);
+
                 }
 
             }else{
-
                 keepNum += ch;
 
                 if (index == expression.length()-1){
@@ -59,8 +69,7 @@ public class StackCalculator {
                     numStack.push(ch-48);
                 }else {
                     //判断
-                    char pd = expression.substring(index+1, index+2).charAt(0);
-                    if (operStack.isOper( pd ) ){
+                    if (operStack.isOper( expression.substring(index+1, index+2).charAt(0) ) ){
 
                         numStack.push(Integer.parseInt(keepNum));
                         keepNum = "";
@@ -70,7 +79,7 @@ public class StackCalculator {
             }
 
             index++;
-            if(index > expression.length()){
+            if(index >= expression.length()){
                 break;
             }
 

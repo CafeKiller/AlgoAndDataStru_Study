@@ -11,6 +11,10 @@ public class StackMain {
 
         //test1();
 
+        StackCalculator stackCalculator = new StackCalculator();
+
+        stackCalculator.fun1();
+
 
     }
 

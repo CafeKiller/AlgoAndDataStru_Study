@@ -43,7 +43,7 @@ public class ArrayStack {
             System.err.println("当前栈为空,无法进行栈操作,可以试试push操作");
             return 0;
         }
-        return stack[--this.top];
+        return stack[top--];
     }
 
     /* 遍历展示栈中的所有元素 */
