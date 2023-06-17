@@ -77,6 +77,20 @@ public class StackCalculator {
 
         }
 
+        while(true){
+
+            if (operStack.isEmpty()){
+                break;
+            }
+
+            num1 = numStack.pop();
+            num2 = numStack.pop();
+            oper = operStack.pop();
+            res = numStack.cal(num1, num2, oper);
+            numStack.push(res);
+
+        }
+        System.err.println(expression + " = " + res);
 
     }
 
