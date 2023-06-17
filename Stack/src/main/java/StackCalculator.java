@@ -20,10 +20,64 @@ public class StackCalculator {
     String keepNum = "";
 
     public void fun1(){
+
+
         while(true){
             ch = expression.substring(index, index+1).charAt(0);
 
+            if(operStack.isOper(ch)){
+
+                if (!operStack.isEmpty()){
+
+                    if (operStack.priority(ch) <= operStack.priority(operStack.peak())){
+
+                        num1 = numStack.pop();
+                        num2 = numStack.pop();
+                        oper = operStack.pop();
+                        res = numStack.cal(num1,num2,oper);
+
+                        numStack.push(res);
+
+                        operStack.push(ch);
+
+                    }else {
+
+                        operStack.push(ch);
+                    }
+
+                }else{
+
+                    operStack.push(ch);
+                }
+
+            }else{
+
+                keepNum += ch;
+
+                if (index == expression.length()-1){
+
+                    numStack.push(ch-48);
+                }else {
+                    //判断
+                    char pd = expression.substring(index+1, index+2).charAt(0);
+                    if (operStack.isOper( pd ) ){
+
+                        numStack.push(Integer.parseInt(keepNum));
+                        keepNum = "";
+                    }
+                }
+
+            }
+
+            index++;
+            if(index > expression.length()){
+                break;
+            }
+
+
         }
+
+
     }
 
 
