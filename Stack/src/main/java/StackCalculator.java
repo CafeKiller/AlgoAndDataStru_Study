@@ -7,8 +7,6 @@ public class StackCalculator {
     /* 表达式 */
     String expression = "7*2*2-5+1-5+3-4";
 
-
-
     /*需要使用到两个栈 数栈 和 运算符栈*/
     ArrStack numStack = new ArrStack(10);
     ArrStack operStack = new ArrStack(10);
@@ -98,12 +96,12 @@ public class StackCalculator {
 
         }
 
+        // 当表达式扫描完毕后, 就从: 数栈 和 符号栈 中pop相应的数和符号,并运算
         while(true){
-
+            /* 如果符号栈为空,则计算到最后的结果 数栈 只有一个结果 */
             if (operStack.isEmpty()){
                 break;
             }
-
             num1 = numStack.pop();
             num2 = numStack.pop();
             oper = operStack.pop();
@@ -111,11 +109,10 @@ public class StackCalculator {
             numStack.push(res);
 
         }
+        // 输出最后的计算结果
         System.err.println(expression + " = " + res);
 
     }
-
-
 
 }
 
