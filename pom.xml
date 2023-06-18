@@ -13,6 +13,7 @@
         <module>Queue</module>
         <module>Linked</module>
         <module>Stack</module>
+        <module>Recursion</module>
     </modules>
 
     <dependencies>
