@@ -5,5 +5,8 @@ public class RecursionMain {
 
         miGong.start();
 
+        Queen8 queen8 = new Queen8();
+        queen8.fun1();
+
     }
 }
