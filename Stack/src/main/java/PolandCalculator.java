@@ -15,11 +15,21 @@ public class PolandCalculator {
     }
 
 
-    public List<String> toInfixExpression(){
+    public List<String> toInfixExpression(String s){
 
         List<String> list = new ArrayList<>();
 
         int i = 0;
+        String str;
+        char c;
+//        do {
+//            if ((c = str.charAt())){
+//
+//            }
+//        }
+
+
+
 
         return list;
     }
