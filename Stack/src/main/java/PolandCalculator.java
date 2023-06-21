@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Div;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -60,6 +62,11 @@ public class PolandCalculator {
                     arrList.add(stack.pop());
                 }
                 stack.pop();
+            }else{
+                while(stack.size() !=0 && (Operation.getValue(item) <= Operation.getValue(stack.peek()))){
+                    arrList.add(stack.pop());
+                }
+                stack.push(item);
             }
         }
 
@@ -69,4 +76,24 @@ public class PolandCalculator {
 
     }
 
+}
+
+class Operation{
+    private static int ADD = 1;
+    private static int SUB = 1;
+    private static int MUL = 2;
+    private static int DIV = 2;
+
+    public static int getValue(String operation){
+        int result = 0;
+        switch(operation){
+            case "+": result = ADD;break;
+            case "-": result = SUB;break;
+            case "*": result = MUL;break;
+            case "/": result = DIV;break;
+            default:
+                System.err.println("不存在的运算符号");
+        }
+        return result;
+    }
 }
