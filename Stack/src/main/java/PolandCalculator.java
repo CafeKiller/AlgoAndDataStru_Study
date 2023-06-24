@@ -1,6 +1,7 @@
 import com.sun.org.apache.xpath.internal.operations.Div;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -51,7 +52,6 @@ public class PolandCalculator {
 
         List<String> arrList = new ArrayList<>();
 
-
         for (String item : list) {
             if(item.matches("\\d+")){
                 arrList.add(item);
@@ -70,9 +70,45 @@ public class PolandCalculator {
             }
         }
 
-
+        while(stack.size() != 0){
+            arrList.add(stack.pop());
+        }
 
         return arrList;
+
+    }
+
+    /* 将一个逆波兰表达式转换成 list */
+    public static List<String> getListString(String suffixExpression){
+        String[] split = suffixExpression.split(" ");
+        List<String> list = new ArrayList<>(Arrays.asList(split));
+        return list;
+    }
+
+
+    /* 完成逆波兰表达式的运算 */
+    public static int calculator(List<String> ls){
+        Stack<String> stack = new Stack<>();
+
+        for (String item : ls) {
+            if (item.matches("\\d+")){
+                stack.push(item);
+            }else {
+                int i2 = Integer.parseInt(stack.pop());
+                int i1 = Integer.parseInt(stack.pop());
+                int res = 0;
+                switch (item){
+                    case "+": res = i1 + i2;break;
+                    case "-": res = i1 - i2;break;
+                    case "*": res = i1 * i2;break;
+                    case "/": res = i1 / i2;break;
+                    default:
+                        System.err.println("符号有异常");
+                }
+                stack.push(res+"");
+            }
+        }
+        return Integer.parseInt(stack.pop());
 
     }
 
