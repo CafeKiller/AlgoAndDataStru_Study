@@ -12,10 +12,12 @@ public class BubblingSort {
         for (int i = 0; i < arr.length - 1; i++) {
             count++;
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-                flag = true;
+                if (arr[j] > arr[j+1]){
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    flag = true;
+                }
             }
             if (!flag){
                 break;
@@ -24,8 +26,7 @@ public class BubblingSort {
             }
         }
 
-        System.err.println("共运行了"+count+"趟");
-        System.err.println("冒泡排序后的数组:" + Arrays.toString(arr));
+        System.err.println("冒泡排序后的数组:" + Arrays.toString(arr)+" 共运行了"+count+"趟");
 
 
     }
