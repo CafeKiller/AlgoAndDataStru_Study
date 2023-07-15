@@ -1,9 +1,11 @@
-import kotlin.random.Random
+import java.util.*
+import kotlin.collections.HashSet
+import kotlin.math.log
 
 class MonkeySort {
 
     private var arr: Array<Int> = arrayOf()
-    private var result = arrayOfNulls<Int>(10)
+    var result = arrayOfNulls<Int>(10)
 
     constructor(arr: Array<Int>){
         this.arr = arr
@@ -13,30 +15,37 @@ class MonkeySort {
      * 判断数组是否有序
      * @param arr 需要传入的一个int数组
      * */
-    private fun checkOrder(arr:Array<Int>): Boolean{
-        for (i in arr.indices) {
+    fun checkOrder(arr:Array<Int>): Boolean{
+        var i=1
+        var len = arr.size
+        while(i < len){
             if (arr[i] <= arr[i-1]){
                 return false
             }
+            i++
         }
         return true
     }
 
-    private fun sort(num: Int,random: Random){
-        var numberSet:Set<Int> = HashSet<Int>()
-        println("第"+ num +"次")
+    /**
+     * 排序方法,使用随机数进行排序,使用Set验证并确保每次取出不同数值,这样可以更快的得出结构
+     * @param num 用于统计执行次数
+     * @param random 随机数对象,使用Java.Utils的
+     * */
+    fun sort(num: Int,random: Random){
+        var numberSet:HashSet<Int> = HashSet<Int>()
+        //println("当前执行, 第"+ num +"次")
 
         for (i in 0..9){
             var idx = random.nextInt(10)
             while (numberSet.contains(idx)){
                 idx = random.nextInt(10)
             }
-            numberSet.plus(idx)
+            numberSet.add(idx)
             var number = arr[idx]
             result[i] = number
-            print(" " + result[i])
+            // println(result.contentToString())
         }
-        println()
     }
 
 
