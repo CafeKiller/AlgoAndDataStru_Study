@@ -20,7 +20,7 @@ public class SortMain {
 
         sortMain.testHellSortByDisp();
 
-
+        sortMain.testQuickSort();
 
 
 
@@ -96,6 +96,20 @@ public class SortMain {
         long startTime = System.currentTimeMillis();
         int[] arr1 = generateArray(100000, 100000);
         HellSort.sortByDisp(arr1);
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("排序完成，约耗时： " + (endTime - startTime) + "ms");
+    }
+
+    /**
+     * 测试快速排序
+     * */
+    public void testQuickSort(){
+        // 开始
+        System.err.println("快速排序测试,处理数据量"+100000+"条");
+        long startTime = System.currentTimeMillis();
+        int[] arr1 = generateArray(100000, 100000);
+        QuickSort.quickSort(arr1, 0, arr1.length-1);
         long endTime = System.currentTimeMillis();
         // 结束
         System.out.println("排序完成，约耗时： " + (endTime - startTime) + "ms");

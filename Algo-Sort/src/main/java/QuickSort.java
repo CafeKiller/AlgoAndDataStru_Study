@@ -15,7 +15,7 @@ public class QuickSort {
 
             while(arr[rIdx] > pivot) rIdx -= 1;
 
-            if(lIdx > rIdx) break;
+            if(lIdx >= rIdx) break;
 
             temp = arr[lIdx];
             arr[lIdx] = arr[rIdx];
