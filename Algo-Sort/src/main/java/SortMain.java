@@ -16,7 +16,7 @@ public class SortMain {
 
         //sortMain.testBogoSort();
 
-//        sortMain.testHellSortBySwap();
+        //sortMain.testHellSortBySwap();
 
         sortMain.testHellSortByDisp();
 

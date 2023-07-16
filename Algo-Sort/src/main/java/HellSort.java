@@ -5,10 +5,8 @@ public class HellSort {
 
     /* 交换法 */
     public static void sortBySwap(int[] arr){
-
         int temp = 0;
         int group = arr.length/2;
-
         while (group != 0) {
             for (int i = group; i < arr.length; i++) {
                 for (int j = i-group; j >= 0;j -= group){
@@ -22,7 +20,6 @@ public class HellSort {
             group /= 2;
         }
         //System.err.println("希尔排序（交换法）的结果是：" + Arrays.toString(arr));
-
     }
 
     /* 位移法 */
