@@ -26,8 +26,8 @@ public class BubblingSort {
             }
         }
 
-        System.err.println("冒泡排序后的数组:" + Arrays.toString(arr)+" 共运行了"+count+"趟");
-
+//        System.err.println("冒泡排序后的数组:" + Arrays.toString(arr));
+        System.err.println("共运行了"+count+"次");
 
     }
 

@@ -21,7 +21,7 @@ public class InsertSort {
                 arr[insertIdx+1] = insertValue;
             }
         }
-        System.err.println("插入排序的结构是："+ Arrays.toString(arr));
+//        System.err.println("插入排序的结构是："+ Arrays.toString(arr));
 
 
     }

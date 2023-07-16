@@ -22,7 +22,7 @@ public class SelectSort {
                 arr[minIdx] = temp;
             }
         }
-        System.err.println("使用选择排序后输出的结果: " + Arrays.toString(arr));
+//        System.err.println("使用选择排序后输出的结果: " + Arrays.toString(arr));
 
 
     }

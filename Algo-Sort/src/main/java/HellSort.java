@@ -21,30 +21,29 @@ public class HellSort {
             }
             group /= 2;
         }
-        System.err.println("希尔排序（交换法）的结果是：" + Arrays.toString(arr));
+        //System.err.println("希尔排序（交换法）的结果是：" + Arrays.toString(arr));
 
     }
 
     /* 位移法 */
     public static void sortByDisp(int[] arr){
-
-        int group = arr.length/2;
-        int idx = 0;
-        int val = 0;
-
-        while(group != 0){
-            for (int i = group; i < arr.length; i++){
-                idx = i -group;
-                val = arr[i];
-                while(idx >= 0 && val < arr[idx]){
-                    arr[idx+group] = arr[idx];
-                    idx -= group;
+        // 确定每一次的步长
+        for (int gap = arr.length/2; gap > 0; gap /= 2) {
+            for (int i = gap; i < arr.length; i++) {
+                int j = i;
+                int temp = arr[j];
+                if (arr[j] < arr[j-gap]){
+                    while(j - gap >= 0 && temp <= arr[j-gap]){
+                        // 进行位移
+                        arr[j] = arr[j-gap];
+                        j -= gap;
+                    }
+                    // 找到位置,退出循环
+                    arr[j] = temp;
                 }
-                arr[idx + group] = val;
             }
-            group /= 2;
         }
-        System.err.println("希尔排序(位移法)的结果是: "+ Arrays.toString(arr) );
+        // System.err.println("希尔排序（位移法）的结果是：" + Arrays.toString(arr));
     }
 
 }
