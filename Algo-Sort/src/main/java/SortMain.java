@@ -18,12 +18,13 @@ public class SortMain {
 
         //sortMain.testHellSortBySwap();
 
-        sortMain.testHellSortByDisp();
+        //sortMain.testHellSortByDisp();
 
-        sortMain.testQuickSort();
+        //sortMain.testQuickSort();
 
-        sortMain.testMergeSort();
+        //sortMain.testMergeSort();
 
+        sortMain.testRadixSort();
     }
 
 
@@ -131,6 +132,23 @@ public class SortMain {
         long endTime = System.currentTimeMillis();
         // 结束
         System.out.println("归并排序测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
+
+    /*
+    * 测试基数排序算法
+    * */
+    public void testRadixSort(){
+        // 开始
+        System.err.println("基数排序测试,处理数据量"+100000+"条");
+        long startTime = System.currentTimeMillis();
+        int[] arr1 = generateArray(100000, 100000);
+
+        radixSort radixSort = new radixSort();
+        radixSort.randixSort(arr1);
+
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("基数排序测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
 
