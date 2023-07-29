@@ -6,11 +6,14 @@ public class SearchMain {
 
     public static void main(String[] args) {
 
-        testSeqSearch();
+//        testSeqSearch();
+//
+//        testBinarySearch();
 
-        testBinarySearch();
+        testInsertValueSearch();
     }
 
+    // 测试线性查找算法
     public static void testSeqSearch(){
 
         System.err.println("线性查找算法测试,处理数据量"+100000+"条");
@@ -32,6 +35,7 @@ public class SearchMain {
     }
 
 
+    // 测试二分查找算法
     public static void testBinarySearch(){
 
         System.err.println("二分查找算法测试,处理数据量"+100000+"条");
@@ -51,6 +55,27 @@ public class SearchMain {
         long endTime = System.currentTimeMillis();
         // 结束
         System.out.println("二分查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
+
+    // 测试插值查找算法
+    public static void testInsertValueSearch(){
+        System.err.println("插值查找算法测试,处理数据量"+100000+"条");
+        int[] arr = generateArray(100000, 100000);
+        // 注意：二分查找算法必须是有序的
+        Arrays.sort(arr);
+        InsertValueSearch insertValueSearch = new InsertValueSearch();
+
+        // 开始
+        long startTime = System.currentTimeMillis();
+        int index = insertValueSearch.insertValueSearch(arr, 0,arr.length-1,5540);
+        if (index != -1){
+            System.out.printf("找到啦, 下标是%d \n",index);
+        }else{
+            System.out.println("哎呀没有找到");
+        }
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("插值查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
     /**
