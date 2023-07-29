@@ -22,8 +22,7 @@ public class SortMain {
 
         sortMain.testQuickSort();
 
-
-
+        sortMain.testMergeSort();
 
     }
 
@@ -98,7 +97,7 @@ public class SortMain {
         HellSort.sortByDisp(arr1);
         long endTime = System.currentTimeMillis();
         // 结束
-        System.out.println("排序完成，约耗时： " + (endTime - startTime) + "ms");
+        System.out.println("希尔排序（交换法）测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
     /**
@@ -112,7 +111,26 @@ public class SortMain {
         QuickSort.quickSort(arr1, 0, arr1.length-1);
         long endTime = System.currentTimeMillis();
         // 结束
-        System.out.println("排序完成，约耗时： " + (endTime - startTime) + "ms");
+        System.out.println("快速排序测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
+
+    /*
+    * 测试归并排序
+    * */
+
+    public void testMergeSort(){
+        // 开始
+        System.err.println("归并排序测试,处理数据量"+100000+"条");
+        long startTime = System.currentTimeMillis();
+        int[] arr1 = generateArray(100000, 100000);
+
+        int[] temp = new int[arr1.length];
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(arr1, 0, arr1.length-1, temp);
+
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("归并排序测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
 

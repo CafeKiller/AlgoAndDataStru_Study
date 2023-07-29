@@ -2,6 +2,8 @@ import java.util.*
 import kotlin.collections.HashSet
 import kotlin.math.log
 
+
+// 猴子排序
 class MonkeySort {
     private var arr: Array<Int> = arrayOf()
     var result = arrayOfNulls<Int>(10)
