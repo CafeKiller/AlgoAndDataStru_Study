@@ -15,6 +15,7 @@
         <module>Stack</module>
         <module>Recursion</module>
         <module>Algo-Sort</module>
+        <module>Alog-Search</module>
     </modules>
 
     <dependencies>
