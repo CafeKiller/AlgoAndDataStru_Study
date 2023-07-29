@@ -11,7 +11,7 @@ public class BinarySearch {
     public int binarySearch(int[] arr, int left, int right, int findValue){
 
         // 当left > right时, 说明递归整个数组, 但没有找到对应的数值
-        if (left> right){
+        if(left>right) {
             return -1;
         }
 
@@ -26,6 +26,8 @@ public class BinarySearch {
         }else{ // 如果都没有,则表示中间值就是要查找的数值
             return mid;
         }
+
+
     }
 
 

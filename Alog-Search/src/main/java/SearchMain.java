@@ -1,33 +1,57 @@
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class SearchMain {
 
     public static void main(String[] args) {
 
         testSeqSearch();
 
+        testBinarySearch();
     }
 
     public static void testSeqSearch(){
-        // 开始
+
         System.err.println("线性查找算法测试,处理数据量"+100000+"条");
-        long startTime = System.currentTimeMillis();
+
         int[] arr = generateArray(100000, 100000);
-
         SeqSearch seqSearch = new SeqSearch();
-        int index = seqSearch.seqSearch(arr, 898);
 
+        // 开始
+        long startTime = System.currentTimeMillis();
+        int index = seqSearch.seqSearch(arr, 31190);
         if (index != -1){
             System.out.printf("找到啦, 下标是%d \n",index);
         }else{
             System.out.println("哎呀没有找到");
         }
-
         long endTime = System.currentTimeMillis();
         // 结束
         System.out.println("线性查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
+
+    public static void testBinarySearch(){
+
+        System.err.println("二分查找算法测试,处理数据量"+100000+"条");
+        int[] arr = generateArray(100000, 100000);
+        // 注意：二分查找算法必须是有序的
+        Arrays.sort(arr);
+        BinarySearch binarySearch = new BinarySearch();
+
+        // 开始
+        long startTime = System.currentTimeMillis();
+        int index = binarySearch.binarySearch(arr, 0,arr.length-1,31190);
+        if (index != -1){
+            System.out.printf("找到啦, 下标是%d \n",index);
+        }else{
+            System.out.println("哎呀没有找到");
+        }
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("二分查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
 
     /**
      * 生成随机数数组,用于排序测试
