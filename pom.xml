@@ -16,6 +16,7 @@
         <module>Recursion</module>
         <module>Algo-Sort</module>
         <module>Alog-Search</module>
+        <module>HashTable</module>
     </modules>
 
     <dependencies>
