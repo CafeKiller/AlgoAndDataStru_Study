@@ -6,11 +6,15 @@ public class SearchMain {
 
     public static void main(String[] args) {
 
-//        testSeqSearch();
-//
-//        testBinarySearch();
+        // testSeqSearch();
 
-        testInsertValueSearch();
+        // testBinarySearch();
+
+        // testInsertValueSearch();
+
+        testFibonacciSearch();
+
+
     }
 
     // 测试线性查找算法
@@ -76,6 +80,27 @@ public class SearchMain {
         long endTime = System.currentTimeMillis();
         // 结束
         System.out.println("插值查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
+
+    // 测试斐波那契查找算法
+    public static void testFibonacciSearch(){
+        System.err.println("斐波那契查找算法测试,处理数据量"+100000+"条");
+        int[] arr = generateArray(100000, 100000);
+        // 注意：二分查找算法必须是有序的
+        Arrays.sort(arr);
+        FibonacciSearch.setMaxSize(100000);
+
+        // 开始
+        long startTime = System.currentTimeMillis();
+        int index = FibonacciSearch.fidSearch(arr,98890);
+        if (index != -1){
+            System.out.printf("找到啦, 下标是%d \n",index);
+        }else{
+            System.out.println("哎呀没有找到");
+        }
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("斐波那契查找算法测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
     /**
