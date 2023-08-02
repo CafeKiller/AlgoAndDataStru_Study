@@ -17,6 +17,7 @@
         <module>Algo-Sort</module>
         <module>Alog-Search</module>
         <module>HashTable</module>
+        <module>Tree</module>
     </modules>
 
     <dependencies>
