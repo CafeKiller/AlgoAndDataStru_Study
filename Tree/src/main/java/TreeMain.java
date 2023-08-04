@@ -35,12 +35,12 @@ public class TreeMain {
 
 //        System.out.println("前序查找");
 //        binaryTree.preOrderSearch(3);
-//
-//        System.out.println("中序查找");
-//        binaryTree.infixOrderSearch(88);
-//
-//        System.out.println("后序查找");
-//        binaryTree.postOrderSearch(111);
+
+        System.out.println("中序查找");
+        binaryTree.infixOrderSearch(88);
+
+        System.out.println("后序查找");
+        binaryTree.postOrderSearch(111);
 
 
     }
