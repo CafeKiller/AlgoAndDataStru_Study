@@ -1,11 +1,15 @@
 import pojo.HeroNode;
+import tree.ArrayBinaryTree;
 import tree.BinaryTree;
 
 public class TreeMain {
 
     public static void main(String[] args) {
+        testArrayBinaryTree();
+    }
 
 
+    public static void testSimpleBinaryTree(){
         BinaryTree binaryTree = new BinaryTree();
 
         HeroNode heroNode1 = new HeroNode(1,"宋江");
@@ -50,8 +54,17 @@ public class TreeMain {
             System.out.println("删除失败");
             binaryTree.preOrder();
         }
+    }
 
-
+    public static void testArrayBinaryTree(){
+        int[] arr = new int[]{1,2,3,4,5,6,7,8};
+        ArrayBinaryTree arrayBinaryTree;
+        try {
+            arrayBinaryTree = new ArrayBinaryTree(arr);
+            arrayBinaryTree.proOrder();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
