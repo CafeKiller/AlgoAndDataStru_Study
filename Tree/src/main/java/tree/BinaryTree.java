@@ -86,5 +86,9 @@ public class BinaryTree {
         return null;
     }
 
+    public boolean delNode(int no){
+        return this.root.delNode(no);
+    }
+
 
 }

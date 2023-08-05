@@ -138,4 +138,33 @@ public class HeroNode {
     }
 
 
+    /**
+     * @param no 需要删除的节点
+     * */
+    public boolean delNode(int no){
+
+        // 如果当前的左节点不为空，且左节点就是需要删除的节点，那么就直接将left=null，表示删除，并结束方法。
+        if (this.left != null && this.left.no == no){
+            this.left = null;
+            return true;
+        }
+        if (this.right != null && this.right.no == no){
+            this.right = null;
+            return true;
+        }
+
+        // 对左节点数进行递归删除
+        if (this.left != null){
+            return this.left.delNode(no);
+        }
+
+        if (this.right != null){
+            return this.right.delNode(no);
+        }
+
+        return false;
+
+    }
+
+
 }
