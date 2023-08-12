@@ -24,7 +24,9 @@ public class SortMain {
 
         //sortMain.testMergeSort();
 
-        sortMain.testRadixSort();
+        // sortMain.testRadixSort();
+
+        sortMain.testHeapSort();
     }
 
 
@@ -151,6 +153,17 @@ public class SortMain {
         System.out.println("基数排序测试完成，约耗时： " + (endTime - startTime) + "ms");
     }
 
+    public void testHeapSort(){
+        // 开始
+        System.err.println("堆排序测试,处理数据量"+100000+"条");
+        long startTime = System.currentTimeMillis();
+        int[] arr1 = generateArray(100000, 100000);
+        int[] temp = new int[arr1.length];
+        HeapSort.heapSort(arr1);
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("堆排序测试完成，约耗时： " + (endTime - startTime) + "ms");
+    }
 
     /**
      * 测试Bogo排序算法(猴子算法)
