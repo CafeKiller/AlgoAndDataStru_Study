@@ -18,6 +18,7 @@
         <module>Alog-Search</module>
         <module>HashTable</module>
         <module>Tree</module>
+        <module>Alog-Other</module>
     </modules>
 
     <dependencies>
