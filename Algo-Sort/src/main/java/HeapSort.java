@@ -2,14 +2,12 @@ public class HeapSort {
 
     public static void heapSort(int[] arr){
         int temp;
-        for (int i= arr.length/2-1; i>=0; i++){
-            adjustHeap(arr,i, arr.length);
+        for (int i= arr.length/2-1; i>=0; i--){
+            adjustHeap(arr, i, arr.length);
         }
         for (int i = arr.length-1; i > 0 ; i--) {
-            temp = arr[i];
-            arr[i] = arr[0];
-            arr[0] = temp;
-            adjustHeap(arr,0,i);
+            swap(arr, 0, i);
+            adjustHeap(arr,0, i);
         }
     }
 
@@ -25,7 +23,7 @@ public class HeapSort {
         int temp = arr[i]; // 获取当前元素的值, 保存为临时变量
 
         // k =i*2+1, k是i节点的左子节点
-        for (int k =i*2+1; k < len; k = k*2-1) {
+        for (int k =i*2+1; k < len; k = k*2+1) {
             if (k+1 <len && arr[k] <arr[k+1]){ // 说明左子节点的值小于右子节点
                 k++; // k指向右子节点,因为要将较大的节点交换到父节点
             }
@@ -37,6 +35,12 @@ public class HeapSort {
             }
         }
         arr[i] = temp;
+    }
+
+    public static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 
 }
