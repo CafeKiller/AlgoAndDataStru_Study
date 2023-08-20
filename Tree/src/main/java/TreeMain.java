@@ -1,7 +1,9 @@
 import pojo.HeroNode;
 import pojo.NewHeroNode;
+import pojo.Node;
 import tree.ArrayBinaryTree;
 import tree.BinaryTree;
+import tree.HuffmanTree;
 import tree.ThreadedBinaryTree;
 
 public class TreeMain {
@@ -12,7 +14,9 @@ public class TreeMain {
 
         // testArrayBinaryTree();
 
-        testThreadedBinaryTree();
+        // testThreadedBinaryTree();
+
+        testHuffmanTree();
     }
     public static void testSimpleBinaryTree(){
         BinaryTree binaryTree = new BinaryTree();
@@ -103,6 +107,12 @@ public class TreeMain {
         //threadedBinaryTree.infixOrder();
         System.out.println("使用线索化的方式遍历 线索化二叉树");
         threadedBinaryTree.threadedList(); // 8, 3, 10, 1, 14, 6
+    }
+
+    public static void testHuffmanTree(){
+        int arr[] = {13,22,45,6,2,54,67,8,90,33,1};
+        Node root = HuffmanTree.createHuffmanTree(arr);
+        HuffmanTree.preOrder(root);
     }
 
 }
