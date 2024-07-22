@@ -26,7 +26,9 @@ public class SortMain {
 
         // sortMain.testRadixSort();
 
-        sortMain.testHeapSort();
+        // sortMain.testHeapSort();
+
+        sortMain.testRadixSortK();
     }
 
 
@@ -191,6 +193,22 @@ public class SortMain {
 
         System.out.println("排序完成，约耗时： " + (endTime - startTime) + "ms");
         System.out.printf("一共执行了 %d 次\n",num);
+
+    }
+
+    public void testRadixSortK() {
+
+        // 开始
+        System.err.println("基数排序（Kotlin）测试，处理数据量"+100000+"条");
+        long startTime = System.currentTimeMillis();
+        int[] arr1 = generateArray(100000, 100000);
+
+        radixSortK radixSortK = new radixSortK();
+        radixSortK.radixSort(arr1);
+
+        long endTime = System.currentTimeMillis();
+        // 结束
+        System.out.println("堆排序测试完成，约耗时： " + (endTime - startTime) + "ms");
 
     }
 
