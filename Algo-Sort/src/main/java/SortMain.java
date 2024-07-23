@@ -199,12 +199,12 @@ public class SortMain {
     public void testRadixSortK() {
 
         // 开始
-        System.err.println("基数排序（Kotlin）测试，处理数据量"+100000+"条");
+        System.err.println("基数排序（Kotlin）测试，处理数据量"+10000+"条");
         long startTime = System.currentTimeMillis();
-        int[] arr1 = generateArray(100000, 100000);
+        int[] arr1 = generateArray(10000, 10000);
 
-        radixSortK radixSortK = new radixSortK();
-        radixSortK.radixSort(arr1);
+        RadixSortK radixSortK = new RadixSortK();
+        radixSortK.run(arr1);
 
         long endTime = System.currentTimeMillis();
         // 结束
