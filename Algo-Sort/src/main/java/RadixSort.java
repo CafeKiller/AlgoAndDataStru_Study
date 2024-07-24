@@ -1,7 +1,7 @@
 
 // 基数排序算法
 // 将所有待比较数值统一为同样的数位长度， 数位较短的数前面补零。 然后， 从最低位开始， 依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。
-public class radixSort {
+public class RadixSort {
 
     // 根据前面的推导过程，我们可以得到最终的基数排序代码
     public void randixSort(int[] arr){

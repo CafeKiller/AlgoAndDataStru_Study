@@ -147,7 +147,7 @@ public class SortMain {
         long startTime = System.currentTimeMillis();
         int[] arr1 = generateArray(100000, 100000);
 
-        radixSort radixSort = new radixSort();
+        RadixSort radixSort = new RadixSort();
         radixSort.randixSort(arr1);
 
         long endTime = System.currentTimeMillis();
